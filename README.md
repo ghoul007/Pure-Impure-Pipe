@@ -1,27 +1,37 @@
 # PureUnpurePipe
+ When writing a custom pipe in Angular you can specify whether you define a pure or an impure pipe:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+```ts
+@Pipe({
+  name: 'filterPipe', 
+  pure: false/true        <----- here (default is `true`)
+})
+export class FilterPipe {}
+```
 
-## Development server
+## Pure pipe 
+input parameters value determine the output so if input parameters don’t change the output doesn’t change
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Unpure pipe 
+cannot use the input value to determine if the output will change
 
-## Code scaffolding
+ ## Change by property
+FilterPipe didn't determine if the output will change
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ ```ts
+    this.users[0].name = "ghoul";
+```
 
-## Build
+ ## Change by reference
+Change Refernce is a solution that allow FilterPipe to determine if the output will change, for example:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ ```ts
+const refUsers= Object.assign([], this.users);
+// or 
+const refUsers= [...this.users];
+// or
+const refUsers = this.users.slice()
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+refUsers[0].name = "ghoul";
+this.users = refUsers
+```
