@@ -1,3 +1,5 @@
+show [demo](https://jvmipoqra.github.stackblitz.io/) 
+
 # PureUnpurePipe
  When writing a custom pipe in Angular you can specify whether you define a pure or an impure pipe:
 
@@ -76,7 +78,4 @@ by default a pipe is pure pipe.
 [See more](https://angular.io/guide/pipes#pure-and-impure-pipes)
 
  
-
-<iframe width="560" height="315"
-src="https://jvmipoqra.github.stackblitz.io/" 
-  ></iframe>
+ 
