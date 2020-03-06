@@ -74,3 +74,9 @@ by default a pipe is pure pipe.
   - So impure pipe executes everytime irrespective of source has changed or not. which leads to bad performance. thats why it is not recommneded to use pipes for filtering data.
 
 [See more](https://angular.io/guide/pipes#pure-and-impure-pipes)
+
+ 
+
+<iframe width="560" height="315"
+src="https://jvmipoqra.github.stackblitz.io/" 
+  ></iframe>
