@@ -62,3 +62,15 @@ Cannot use the input value to determine if the output will change
 })
 export class FilterPipe {}
 ```
+
+
+### Pure & impure Pipes
+
+  - pure pipes are the pipes which are executed only when a "PURE CHANGE" to the input value is detected.
+
+  - A pure change is either a change to a primitive input (string, number etc) value. or changed Object reference.
+by default a pipe is pure pipe.
+
+  - So impure pipe executes everytime irrespective of source has changed or not. which leads to bad performance. thats why it is not recommneded to use pipes for filtering data.
+
+[See more](https://angular.io/guide/pipes#pure-and-impure-pipes)
